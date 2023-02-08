@@ -1,2 +1,16 @@
 <h1 id="empt">{{emptitle}}</h1>
 <p *ngFor= "let col of empTblColumns;" >{{col}}</p>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>ID</td>
+        <td>Job</td>
+        <td>Salary</td>
+    </tr>
+    <tr *ngFor="let emp of emps;">
+        <td>{{emp.name}}</td>
+        <td>{{emp.empId}}</td>
+        <td>{{emp.jobId}}</td>
+        <td>{{emp.salary}}</td>
+    </tr>
+</table>
