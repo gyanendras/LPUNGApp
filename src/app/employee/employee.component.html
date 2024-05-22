@@ -1,16 +1,25 @@
 <h1 id="empt">{{emptitle}}</h1>
-<p *ngFor= "let col of empTblColumns;" >{{col}}</p>
+<p *ngFor= "let col of empTblColumns;" >{{col}} </p>
+<p>{{'uppercasepipe convert string to uppercase in angular'
+    | uppercase}}</p>
 <table>
     <tr>
         <td>Name</td>
         <td>ID</td>
-        <td>Job</td>
-        <td>Salary</td>
+        <td>City</td>
+        <td>DepId</td>
     </tr>
+   
     <tr *ngFor="let emp of emps;">
-        <td>{{emp.name}}</td>
+        <td>{{emp.name}} </td>
         <td>{{emp.empId}}</td>
-        <td>{{emp.jobId}}</td>
-        <td>{{emp.salary}}</td>
+        <td>{{emp.city}}</td>
+        <td>{{emp.depId}}</td>
+        
+        <td (click)="mod(emp)">{{emp.city}}</td>
+        <td><app-department [empDept]=emp></app-department> </td>
+         <td> <a [routerLink]="['/department', emp.depId]">Dep Details</a> </td>
     </tr>
+ 
+    
 </table>

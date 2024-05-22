@@ -2,6 +2,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { EmpDataService } from '../emp-data-service.service';
 import { Employee } from '../employee';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +12,10 @@ import { Employee } from '../employee';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  emptitle:String = "The list of emp is below";
+  emptitle:String = "New The list of emp is below";
   empTblColumns:String[]=["Name","Id","Salary"];
   emps:Employee[]=[];
+  city!:String;
   constructor(private ds:EmpDataService){}
 
   ngOnInit(){
@@ -21,12 +23,18 @@ export class EmployeeComponent implements OnInit {
   this.ds.getEmpData().subscribe(res=>{
     console.log(res);
     this.emps = res.map(item =>{
-      return new Employee(item.name, item.empId,item.jobId,item.salary);
-    } )
-console.log(this.emps);
+      console.log("item values  " + item.empId+" "+item.name+" "+item.depId);
+      return new Employee( item.empId,item.name,item.jobId,item.salary,item.city,22,2000);
+    } );
+  console.log(this.emps);
     });
 
    
+  }
+
+  mod(x:Employee){
+    console.log(x);
+    this.ds.updEmpData(x);
   }
 
 }
