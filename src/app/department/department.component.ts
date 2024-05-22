@@ -23,14 +23,15 @@ export class DepartmentComponent implements OnInit {
       params => { 
        let z=params.get("did");
        console.log("Z is"+ z);
-       this.empDept.depId = Number(z);
+       //this.empDept.depId = Number(z);
+       this.dept.did = Number(z);
 
        
 
       }
     );
 
-    this.ds.getDept(this.empDept.depId).subscribe(
+    this.ds.getDept(this.dept.did).subscribe(
       {
         next:(x)=>{
           console.log("data recieved in comp "+x);

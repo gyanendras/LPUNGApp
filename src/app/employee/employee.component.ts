@@ -24,7 +24,7 @@ export class EmployeeComponent implements OnInit {
     console.log(res);
     this.emps = res.map(item =>{
       console.log("item values  " + item.empId+" "+item.name+" "+item.depId);
-      return new Employee( item.empId,item.name,item.jobId,item.salary,item.city,22,2000);
+      return new Employee( item.empId,item.name,item.jobId,item.salary,item.city,item.depId,2000);
     } );
   console.log(this.emps);
     });
