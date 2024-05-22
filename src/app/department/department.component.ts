@@ -30,18 +30,20 @@ export class DepartmentComponent implements OnInit {
 
       }
     );
-
+if(this.dept.did!=0){
     this.ds.getDept(this.dept.did).subscribe(
       {
         next:(x)=>{
-          console.log("data recieved in comp "+x);
-          this.dept=x},
+        
+          this.dept=x;
+          console.log("data recieved in comp "+this.dept.dName);
+        },
         error:(err)=>{console.log(err)}
       }
     );
     console.log("in dept comp"+this.dept);
       
-      
+}  
       
       
       
